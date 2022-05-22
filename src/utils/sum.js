@@ -1,3 +1,5 @@
-export const sum = (a, b) => {
-  return a + b;
+export const sum = (...args) => {
+  return args.reduce((prev, cur) => prev + cur, 0);
 };
+
+export default sum;
