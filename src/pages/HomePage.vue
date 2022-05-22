@@ -1,12 +1,14 @@
 <template>
   <h1>HomePage</h1>
   <div>
-    <input
-      class="input-search"
-      v-model="q"
-      type="text"
-      placeholder="Search..."
-    />
+    <div>
+      <input
+        class="input-search"
+        v-model="q"
+        type="text"
+        placeholder="Search..."
+      />
+    </div>
     <template v-if="!isLoading">
       <div class="d-flex">
         <todo-item
@@ -38,13 +40,15 @@ export default {
     Pagination,
   },
   setup: function () {
-    const { todos, isLoading, handleGetTodos, total, limit, page } =
-      useGetTodos();
-    const { handleChangeRoute } = useQueryParams();
-    const q = ref("");
+    const { handleChangeRoute, handleGetQuery } = useQueryParams();
+    const query = handleGetQuery();
+    const { todos, isLoading, handleGetTodos, total } = useGetTodos();
+    const q = ref(query.q || "");
+    const page = ref(query.page || 1);
+    const limit = ref(query.limit || 12);
 
-    onBeforeMount(() => {
-      handleGetTodos();
+    onBeforeMount(async () => {
+      await handleGetTodos(page.value, limit.value, { q: q.value });
       handleChangeRoute({
         limit: limit.value,
         page: page.value,
@@ -54,13 +58,23 @@ export default {
       });
     });
 
-    watch([page, limit, q], function ([newPage, newLimit, newQ]) {
-      handleChangeRoute({
-        limit: newLimit,
-        page: newPage,
-        filter: { q: newQ },
-      });
+    watch([q, page, limit], function () {
       handleGetTodos(page.value, limit.value, { q: q.value });
+      handleChangeRoute({
+        limit: limit.value,
+        page: page.value,
+        filter: { q: q.value },
+      });
+    });
+
+    watch([q], function () {
+      page.value = 1;
+      handleGetTodos(page.value, limit.value, { q: q.value });
+      handleChangeRoute({
+        limit: limit.value,
+        page: page.value,
+        filter: { q: q.value },
+      });
     });
 
     return {

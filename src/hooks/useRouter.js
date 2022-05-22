@@ -2,6 +2,7 @@ import queryString from "query-string";
 
 function useQueryParams() {
   const handleChangeRoute = (query) => {
+    console.log(query);
     window.history.replaceState(
       null,
       "",
@@ -17,8 +18,14 @@ function useQueryParams() {
     );
   };
 
+  const handleGetQuery = () => {
+    const query = queryString.parse(window.location.hash.split("#/?")[1]);
+    return query;
+  };
+
   return {
     handleChangeRoute,
+    handleGetQuery,
   };
 }
 

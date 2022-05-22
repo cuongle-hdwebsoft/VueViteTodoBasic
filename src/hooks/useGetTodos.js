@@ -5,8 +5,6 @@ function useGetTodo() {
   const todos = ref([]);
   const isLoading = ref(false);
   const total = ref(0);
-  const page = ref(1);
-  const limit = ref(12);
 
   const handleGetTodos = async (page, limit, filter) => {
     isLoading.value = true;
@@ -26,8 +24,6 @@ function useGetTodo() {
     total,
     isLoading,
     handleGetTodos,
-    page,
-    limit,
   };
 }
 
