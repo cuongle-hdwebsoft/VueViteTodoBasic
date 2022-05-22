@@ -19,6 +19,7 @@
     "axios": "^0.27.2",
     "json-server": "^0.17.0",
     "lodash": "^4.17.21",
+    "query-string": "^7.1.1",
     "vite": "^2.9.9",
     "vue": "^3.2.35",
     "vue-router": "^4.0.15"
@@ -26,6 +27,7 @@
   "devDependencies": {
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^9.0.1",
     "sass": "^1.52.1"
   }
 }

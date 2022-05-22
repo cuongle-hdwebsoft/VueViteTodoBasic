@@ -1,21 +1,30 @@
 import instance from "./instance";
 
-export default class Todo {
-  static getAll() {
+export default class TodoApi {
+  static getAll(params = {}) {
     return instance({
       methods: "GET",
       url: "/todos",
+      params: {
+        _limit: params.limit ? params.limit : 12,
+        _page: params.page ? params.page - 1 : 0,
+        ...params.filter,
+      },
     })
       .then((rs) => {
+        const total = rs.headers["x-total-count"];
+
         return {
           success: true,
           data: rs.data,
+          total,
         };
       })
       .catch(() => {
         return {
           success: false,
           data: [],
+          total: 0,
         };
       });
   }
