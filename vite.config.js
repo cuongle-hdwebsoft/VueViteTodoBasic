@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
+import VuePlugin from "@vitejs/plugin-vue";
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -32,5 +33,6 @@ export default defineConfig(({ command, mode }) => {
       port: env.VITE_PORT,
       strictPort: true,
     },
+    plugins: [VuePlugin()],
   };
 });
