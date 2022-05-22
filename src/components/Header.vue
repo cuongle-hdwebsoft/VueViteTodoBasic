@@ -3,10 +3,14 @@
     <div class="navbar">
       <img class="logo" src="/favicon.ico" alt="logo" />
       <ul class="navbar__nav">
-        <li class="navbar__item"><a href="#" class="navbar__link">Home</a></li>
-        <li class="navbar__item"><a href="#" class="navbar__link">News</a></li>
         <li class="navbar__item">
-          <a href="#" class="navbar__link">Login</a>
+          <router-link to="/homepage" class="navbar__link">Home</router-link>
+        </li>
+        <li class="navbar__item">
+          <router-link to="/news" class="navbar__link">News</router-link>
+        </li>
+        <li class="navbar__item">
+          <router-link to="/login" class="navbar__link">Login</router-link>
         </li>
       </ul>
     </div>

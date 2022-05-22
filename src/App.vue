@@ -1,6 +1,8 @@
 <template>
   <HeaderComponent></HeaderComponent>
-  <Container> </Container>
+  <Container>
+    <router-view></router-view>
+  </Container>
 </template>
 
 <script setup>
