@@ -14,6 +14,7 @@
   "author": "Ram4GB",
   "license": "ISC",
   "dependencies": {
+    "lodash": "^4.17.21",
     "vite": "^2.9.9"
   },
   "devDependencies": {

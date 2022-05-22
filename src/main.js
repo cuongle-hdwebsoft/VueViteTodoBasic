@@ -27,3 +27,12 @@ document.querySelector("body").appendChild(image);
 // export glob
 const modules = import.meta.glob("./utils/*.js");
 console.log(modules);
+
+// test https://vitejs.dev/guide/assets.html#explicit-url-imports
+import randomUrl from "lodash/random.js?url";
+import randomRaw from "lodash/random.js?raw";
+console.log(randomUrl);
+console.log(randomRaw);
+
+// http://localhost:3000/src/assets/images/hello-kitty.jpg
+console.log(new URL("./assets/images/hello-kitty.jpg", import.meta.url).href);
