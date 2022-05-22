@@ -10,15 +10,14 @@ export default defineConfig(({ command, mode }) => {
     define: {
       __APP_ENV__: "ADMIN", // this is not working now
     },
-    resolve: {
-      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
-    },
+
     cacheDir: ".vite",
     publicDir: "public",
     resolve: {
       alias: {
         "@": "/src/",
       },
+      extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
     },
   };
 });
