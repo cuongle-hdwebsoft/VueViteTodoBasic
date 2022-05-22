@@ -1,0 +1,22 @@
+{
+  "name": "learning-vite",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@ram4gb:Ram4GB/Learning-vite.git"
+  },
+  "author": "Ram4GB",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^2.9.9"
+  },
+  "devDependencies": {
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0"
+  }
+}
