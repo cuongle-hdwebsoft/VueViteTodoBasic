@@ -1,6 +1,6 @@
 <template>
   <div class="todo-item">
-    <div class="todo-item__wrap">
+    <el-card class="todo-item__wrap">
       <div class="todo-item__title">
         <strong>Title: </strong>
         <span>{{ todo.title }}</span>
@@ -14,10 +14,10 @@
         <span>{{ todo.status }}</span>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary">edit</button>
-        <button class="btn btn-danger">delete</button>
+        <el-button type="primary">Edit</el-button>
+        <el-button type="danger">Delete</el-button>
       </div>
-    </div>
+    </el-card>
   </div>
 </template>
 
@@ -34,7 +34,7 @@ export default {
 <style lang='scss' scoped>
 .todo-item {
   border-radius: 5px;
-  width: (100 / 12) * 3 * 1%;
+  width: (8.3333) * 3 * 1%;
   cursor: pointer;
 
   &__wrap {
@@ -44,7 +44,6 @@ export default {
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
     margin: 10px;
     min-height: 150px;
-    border-radius: 10px;
 
     &:hover {
       box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,

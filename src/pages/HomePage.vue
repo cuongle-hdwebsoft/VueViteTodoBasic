@@ -1,8 +1,7 @@
 <template>
-  <h1>HomePage</h1>
   <div>
     <div>
-      <input
+      <el-input
         class="input-search"
         v-model="q"
         type="text"
@@ -10,26 +9,31 @@
       />
     </div>
     <template v-if="!isLoading">
-      <div class="d-flex">
+      <div class="d-flex" style="padding: 5px">
         <todo-item
           v-for="todo in todos"
           :key="todo.id"
           :todo="todo"
         ></todo-item>
       </div>
-      <pagination
-        :total="total"
-        v-model:page="page"
-        v-model:limit="limit"
-      ></pagination>
+      <div style="margin-left: 10px">
+        <el-pagination
+          :total="total"
+          v-model:current-page="page"
+          v-model:page-size="limit"
+          layout="total, sizes, prev, pager, next, jumper"
+          :small="false"
+          :page-sizes="[12, 28]"
+          :background="true"
+        ></el-pagination>
+      </div>
     </template>
-    <template v-else> Loading... </template>
+    <template v-else><el-empty :image-size="200" /></template>
   </div>
 </template>
 
 <script>
 import TodoItem from "@/components/TodoItem.vue";
-import Pagination from "@/components/Pagination.vue";
 import useGetTodos from "@/hooks/useGetTodos.js";
 import useQueryParams from "@/hooks/useRouter.js";
 import { onBeforeMount, ref, watch } from "@vue/runtime-core";
@@ -37,15 +41,14 @@ export default {
   name: "HomePage",
   components: {
     TodoItem,
-    Pagination,
   },
   setup: function () {
     const { handleChangeRoute, handleGetQuery } = useQueryParams();
     const query = handleGetQuery();
     const { todos, isLoading, handleGetTodos, total } = useGetTodos();
     const q = ref(query.q || "");
-    const page = ref(query.page || 1);
-    const limit = ref(query.limit || 12);
+    const page = ref(parseInt(query.page) || 1);
+    const limit = ref(parseInt(query.limit) || 12);
 
     onBeforeMount(async () => {
       await handleGetTodos(page.value, limit.value, { q: q.value });
@@ -58,7 +61,7 @@ export default {
       });
     });
 
-    watch([q, page, limit], function () {
+    watch([page], function () {
       handleGetTodos(page.value, limit.value, { q: q.value });
       handleChangeRoute({
         limit: limit.value,
@@ -67,7 +70,7 @@ export default {
       });
     });
 
-    watch([q], function () {
+    watch([q, limit], function () {
       page.value = 1;
       handleGetTodos(page.value, limit.value, { q: q.value });
       handleChangeRoute({

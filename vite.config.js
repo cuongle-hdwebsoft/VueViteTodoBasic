@@ -1,5 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import VuePlugin from "@vitejs/plugin-vue";
+import Components from "unplugin-vue-components/vite";
+import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig(({ command, mode }) => {
   const env = loadEnv(mode, process.cwd());
@@ -23,7 +25,7 @@ export default defineConfig(({ command, mode }) => {
       },
       preprocessorOptions: {
         scss: {
-          additionalData: "",
+          additionalData: "@use 'element-plus/theme-chalk/src/index.scss';",
         },
       },
       devSourcemap: true,
@@ -33,7 +35,15 @@ export default defineConfig(({ command, mode }) => {
       port: env.VITE_PORT,
       strictPort: true,
       force: true,
+      watch: {
+        usePolling: true,
+      },
     },
-    plugins: [VuePlugin()],
+    plugins: [
+      VuePlugin(),
+      Components({
+        resolvers: [ElementPlusResolver()],
+      }),
+    ],
   };
 });

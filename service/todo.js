@@ -17,7 +17,7 @@ export default class TodoApi {
         return {
           success: true,
           data: rs.data,
-          total,
+          total: parseInt(total),
         };
       })
       .catch(() => {
