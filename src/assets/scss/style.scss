@@ -4,3 +4,10 @@
   font-family: "Space Mono", monospace;
   box-sizing: border-box;
 }
+
+html,
+body {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+}
