@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite --force",
+    "dev": "vite --force true --port 3001 --open --cors false --clearScreen true",
     "build": "vite build"
   },
   "repository": {
