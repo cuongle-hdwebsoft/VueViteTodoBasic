@@ -7,10 +7,7 @@ export default defineConfig(({ command, mode }) => {
     root: process.cwd(),
     base: "/",
     mode: mode === "development" ? "development" : "production",
-    define: {
-      __APP_ENV__: "ADMIN", // this is not working now
-    },
-
+    define: {},
     cacheDir: ".vite",
     publicDir: "public",
     resolve: {
@@ -18,6 +15,17 @@ export default defineConfig(({ command, mode }) => {
         "@": "/src/",
       },
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
+    },
+    css: {
+      modules: {
+        localsConvention: "camelCaseOnly",
+      },
+      preprocessorOptions: {
+        scss: {
+          additionalData: "",
+        },
+      },
+      devSourcemap: true,
     },
   };
 });
