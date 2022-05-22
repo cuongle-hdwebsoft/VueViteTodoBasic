@@ -32,6 +32,7 @@ export default defineConfig(({ command, mode }) => {
       host: env.VITE_HOST,
       port: env.VITE_PORT,
       strictPort: true,
+      force: true,
     },
     plugins: [VuePlugin()],
   };

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite --force true --port 3001 --open --cors false --clearScreen true",
+    "dev": "vite --port 3001 --open --cors false --clearScreen true",
     "build": "vite build"
   },
   "repository": {
@@ -15,6 +15,8 @@
   "license": "ISC",
   "dependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
+    "axios": "^0.27.2",
+    "json-server": "^0.17.0",
     "lodash": "^4.17.21",
     "vite": "^2.9.9",
     "vue": "^3.2.35",
