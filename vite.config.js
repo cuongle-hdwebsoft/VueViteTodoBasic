@@ -1,7 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 
 export default defineConfig(({ command, mode }) => {
-  console.log(mode, loadEnv(mode, process.cwd(), "VITE_"));
+  const env = loadEnv(mode, process.cwd());
 
   return {
     root: process.cwd(),
@@ -26,6 +26,11 @@ export default defineConfig(({ command, mode }) => {
         },
       },
       devSourcemap: true,
+    },
+    server: {
+      host: env.VITE_HOST,
+      port: env.VITE_PORT,
+      strictPort: true,
     },
   };
 });
