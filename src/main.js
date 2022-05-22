@@ -1,9 +1,9 @@
-import { sum } from "./utils/sum";
+import { sum } from "@/utils/sum";
 
 console.log(sum(5, 10));
 
-import buttonStyle from "./assets/css/button.module.css";
-import "./assets/css/style.css";
+import buttonStyle from "@/assets/css/button.module.css";
+import "@/assets/css/style.css";
 
 console.log(buttonStyle);
 
@@ -14,7 +14,7 @@ button.innerText = "Click me";
 document.querySelector("body").appendChild(button);
 
 // test load images
-import helloKity from "./assets/images/hello-kitty.jpg";
+import helloKity from "@/assets/images/hello-kitty.jpg";
 console.log(helloKity);
 const image = document.createElement("img");
 image.src = helloKity;
