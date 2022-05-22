@@ -10,6 +10,10 @@ const pages = Object.keys(files).map((file) => {
   let path = `/${fileName}`;
   let component = files[file].default;
 
+  if (fileName.includes("homepage")) {
+    path = "/";
+  }
+
   if (fileName.includes("notfound")) {
     path = "/:pathMatch(.*)*";
   }
@@ -19,7 +23,5 @@ const pages = Object.keys(files).map((file) => {
     component,
   };
 });
-
-console.log(pages);
 
 export default pages;

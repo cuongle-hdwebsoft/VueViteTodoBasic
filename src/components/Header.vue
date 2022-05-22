@@ -4,7 +4,7 @@
       <img class="logo" src="/favicon.ico" alt="logo" />
       <ul class="navbar__nav">
         <li class="navbar__item">
-          <router-link to="/homepage" class="navbar__link">Home</router-link>
+          <router-link to="/" class="navbar__link">Home</router-link>
         </li>
         <li class="navbar__item">
           <router-link to="/news" class="navbar__link">News</router-link>
