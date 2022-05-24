@@ -1,16 +1,24 @@
 <template>
-  <HeaderComponent></HeaderComponent>
-  <Container>
+  <main-layout>
     <router-view></router-view>
-  </Container>
+  </main-layout>
 </template>
 
 <script setup>
-import HeaderComponent from "@/components/Header.vue";
-import Container from "@/components/Container.vue";
 </script>
 <script>
+import MainLayout from "@/components/MainLayout.vue";
+
+export default {
+  components: {
+    MainLayout,
+  },
+};
 </script>
 
 <style>
+.content {
+  margin-top: 60px;
+  padding: 10px;
+}
 </style>

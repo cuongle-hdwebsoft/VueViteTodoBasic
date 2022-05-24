@@ -10,8 +10,11 @@ export default {};
 
 <style lang='scss' scoped>
 .container {
-  width: 80%;
+  max-width: 600px;
   margin: auto;
-  padding: 10px;
+  padding: 0px;
+  border: 1px solid #ddd;
+  border-top: none;
+  position: relative;
 }
 </style>

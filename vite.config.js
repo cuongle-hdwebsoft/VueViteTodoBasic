@@ -25,7 +25,11 @@ export default defineConfig(({ command, mode }) => {
       },
       preprocessorOptions: {
         scss: {
-          additionalData: "@use 'element-plus/theme-chalk/src/index.scss';",
+          additionalData: `
+            $primary-bg: rgb(0, 118, 202);
+            $white-text: #fff;
+            @use 'element-plus/theme-chalk/src/index.scss';
+          `,
         },
       },
       devSourcemap: true,

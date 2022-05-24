@@ -34,15 +34,15 @@ export default {
 <style lang='scss' scoped>
 .todo-item {
   border-radius: 5px;
-  width: (8.3333) * 3 * 1%;
   cursor: pointer;
+  width: 100%;
 
   &__wrap {
     border: 1px solid #ddd;
-    padding: 10px;
+    padding: 8px 10px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
       rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
-    margin: 10px;
+    margin: 10px 0px;
     min-height: 150px;
 
     &:hover {

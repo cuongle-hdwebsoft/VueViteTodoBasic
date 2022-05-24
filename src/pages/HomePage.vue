@@ -1,35 +1,25 @@
 <template>
+  <h1>Home Page</h1>
   <div>
-    <div>
-      <el-input
-        class="input-search"
-        v-model="q"
-        type="text"
-        placeholder="Search..."
-      />
-    </div>
-    <template v-if="!isLoading">
-      <div class="d-flex" style="padding: 5px">
-        <todo-item
-          v-for="todo in todos"
-          :key="todo.id"
-          :todo="todo"
-        ></todo-item>
-      </div>
-      <div style="margin-left: 10px">
-        <el-pagination
-          :total="total"
-          v-model:current-page="page"
-          v-model:page-size="limit"
-          layout="total, sizes, prev, pager, next, jumper"
-          :small="false"
-          :page-sizes="[12, 28]"
-          :background="true"
-        ></el-pagination>
-      </div>
-    </template>
-    <template v-else><el-empty :image-size="200" /></template>
+    <el-input v-model="q" type="text" placeholder="Search..." />
   </div>
+  <template v-if="!isLoading">
+    <div class="d-flex">
+      <todo-item v-for="todo in todos" :key="todo.id" :todo="todo"></todo-item>
+    </div>
+    <div>
+      <el-pagination
+        :total="total"
+        v-model:current-page="page"
+        v-model:page-size="limit"
+        layout="prev, pager, next"
+        :small="false"
+        :page-sizes="[12, 28]"
+        :background="true"
+      ></el-pagination>
+    </div>
+  </template>
+  <template v-else><el-empty :image-size="200" /></template>
 </template>
 
 <script>
@@ -37,6 +27,7 @@ import TodoItem from "@/components/TodoItem.vue";
 import useGetTodos from "@/hooks/useGetTodos.js";
 import useQueryParams from "@/hooks/useRouter.js";
 import { onBeforeMount, ref, watch } from "@vue/runtime-core";
+
 export default {
   name: "HomePage",
   components: {
@@ -48,7 +39,7 @@ export default {
     const { todos, isLoading, handleGetTodos, total } = useGetTodos();
     const q = ref(query.q || "");
     const page = ref(parseInt(query.page) || 1);
-    const limit = ref(parseInt(query.limit) || 12);
+    const limit = ref(parseInt(query.limit) || 8);
 
     onBeforeMount(async () => {
       await handleGetTodos(page.value, limit.value, { q: q.value });
