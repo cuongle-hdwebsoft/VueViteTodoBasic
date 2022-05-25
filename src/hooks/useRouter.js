@@ -2,9 +2,8 @@ import queryString from "query-string";
 
 function useQueryParams() {
   const handleChangeRoute = (query) => {
-    console.log(query);
     window.history.replaceState(
-      null,
+      {},
       "",
       window.location.protocol +
         "//" +

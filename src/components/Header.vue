@@ -3,13 +3,19 @@
     <div class="navbar">
       <ul class="navbar__nav">
         <li class="navbar__item">
-          <router-link to="/" class="navbar__link">Home</router-link>
+          <router-link to="/" class="navbar__link"
+            ><el-icon><HomeFilled /></el-icon><span>Home</span></router-link
+          >
         </li>
         <li class="navbar__item">
-          <router-link to="/news" class="navbar__link">News</router-link>
+          <router-link to="/news" class="navbar__link"
+            ><el-icon><Document /></el-icon><span>News</span></router-link
+          >
         </li>
         <li class="navbar__item">
-          <router-link to="/login" class="navbar__link">Login</router-link>
+          <router-link to="/login" class="navbar__link"
+            ><el-icon><SwitchButton /></el-icon><span>Login</span></router-link
+          >
         </li>
       </ul>
     </div>
@@ -17,7 +23,14 @@
 </template>
 
 <script>
-export default {};
+import { HomeFilled, Document, SwitchButton } from "@element-plus/icons-vue";
+export default {
+  components: {
+    HomeFilled,
+    Document,
+    SwitchButton,
+  },
+};
 </script>
 
 <style lang='scss' scoped>
@@ -55,9 +68,18 @@ export default {};
     }
   }
 
+  &__link {
+    display: flex;
+    align-items: center;
+  }
+
   .logo {
     width: 40px;
     height: 40px;
+  }
+
+  & span {
+    margin-left: 5px;
   }
 }
 </style>
