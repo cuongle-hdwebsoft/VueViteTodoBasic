@@ -18,6 +18,11 @@ const pages = Object.keys(files).map((file) => {
     path = "/:pathMatch(.*)*";
   }
 
+  if (fileName.includes("item")) {
+    let name = fileName.split("item")[0];
+    path = `/${name}/:id`;
+  }
+
   return {
     path,
     component,

@@ -26,7 +26,7 @@
 import TodoItem from "@/components/TodoItem.vue";
 import useGetTodos from "@/hooks/useGetTodos.js";
 import useQueryParams from "@/hooks/useRouter.js";
-import { onBeforeMount, ref, watch } from "@vue/runtime-core";
+import { onBeforeMount, ref, watch } from "vue";
 
 export default {
   name: "HomePage",

@@ -14,7 +14,12 @@
         <span>{{ todo.status }}</span>
       </div>
       <div class="btn-group">
-        <el-button :icon="EditPen" type="primary">Edit</el-button>
+        <el-button
+          @click="router.push('/todo/' + todo.id)"
+          :icon="EditPen"
+          type="primary"
+          >Edit</el-button
+        >
         <el-button :icon="Delete" type="danger">Delete</el-button>
       </div>
     </el-card>
@@ -23,12 +28,20 @@
 
 <script setup>
 import { defineProps } from "vue";
-import { EditPen, Delete } from "@element-plus/icons-vue";
+import { useRouter } from "vue-router";
+
 const props = defineProps(["todo"]);
+const router = useRouter();
 </script>
 <script>
+import { EditPen, Delete } from "@element-plus/icons-vue";
+
 export default {
   name: "TodoItem",
+  components: {
+    EditPen,
+    Delete,
+  },
 };
 </script>
 

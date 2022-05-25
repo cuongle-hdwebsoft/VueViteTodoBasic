@@ -1,6 +1,7 @@
 import { defineConfig, loadEnv } from "vite";
 import VuePlugin from "@vitejs/plugin-vue";
 import Components from "unplugin-vue-components/vite";
+import AutoImport from "unplugin-auto-import/vite";
 import { ElementPlusResolver } from "unplugin-vue-components/resolvers";
 
 export default defineConfig(({ command, mode }) => {
@@ -46,6 +47,9 @@ export default defineConfig(({ command, mode }) => {
     },
     plugins: [
       VuePlugin(),
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
       Components({
         resolvers: [ElementPlusResolver()],
       }),
