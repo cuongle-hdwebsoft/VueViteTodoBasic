@@ -18,6 +18,7 @@ export default defineConfig(({ command, mode }) => {
         "@": "/src/",
       },
       extensions: [".mjs", ".js", ".ts", ".jsx", ".tsx", ".json"],
+      dedupe: ["vue"],
     },
     css: {
       modules: {
