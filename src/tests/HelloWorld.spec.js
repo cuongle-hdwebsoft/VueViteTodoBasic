@@ -234,4 +234,32 @@ describe("HelloWorld.spec.js", function () {
 
     // chưa test dc cái callsArgOn
   });
+
+  it("should pass timeout 1000", async function () {
+    const clock = Sinon.useFakeTimers({
+      toFake: ["setTimeout"],
+    });
+
+    setTimeout(() => {
+      console.log("timeout 1000");
+    }, 1000);
+
+    setTimeout(() => {
+      console.log("timeout 2000");
+    }, 2000);
+
+    // tất cả setTimeout giờ đều bị stub
+    // clock.tickAsync hay clock.stick sẽ cho thời gian chạy tới 1 thời điểm nào đó 1000
+
+    // clock.stick(1000)
+    //  console.log("timeout 1000");
+
+    // clock.stick(1200)
+    //  console.log("timeout 1000");
+
+    // clock.stick(2000)
+    //  console.log("timeout 1000");
+    //  console.log("timeout 2000");
+    await clock.tickAsync(9000);
+  });
 });

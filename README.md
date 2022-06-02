@@ -55,3 +55,7 @@ console.log(randomRaw);
 // http://localhost:3000/src/assets/images/hello-kitty.jpg
 console.log(new URL("./assets/images/hello-kitty.jpg", import.meta.url).href);
 </pre>
+
+### Noted
+
+- $nextTick always run after watch and computed. so we can make sure everything updated
