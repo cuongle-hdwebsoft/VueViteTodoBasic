@@ -1,3 +1,9 @@
 {
-  "editor.formatOnSave": false
+  "editor.formatOnSave": false,
+  "eslint.workingDirectories": [
+    "./src"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }
