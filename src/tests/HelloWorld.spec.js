@@ -18,7 +18,7 @@ const student = {
 };
 
 const db = {
-  students: Array.from({ length: 10 }).map((_, index) => ({
+  students: Array.from({ length: 10 }).map(() => ({
     id: faker.datatype.uuid(),
     firstName: faker.name.firstName(),
     lastName: faker.name.lastName(),

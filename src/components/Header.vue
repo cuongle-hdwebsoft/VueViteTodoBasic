@@ -3,19 +3,28 @@
     <div class="navbar">
       <ul class="navbar__nav">
         <li class="navbar__item">
-          <router-link to="/" class="navbar__link"
-            ><el-icon><HomeFilled /></el-icon><span>Home</span></router-link
+          <router-link
+            to="/"
+            class="navbar__link"
           >
+            <el-icon><HomeFilled /></el-icon><span>Home</span>
+          </router-link>
         </li>
         <li class="navbar__item">
-          <router-link to="/news" class="navbar__link"
-            ><el-icon><Document /></el-icon><span>News</span></router-link
+          <router-link
+            to="/news"
+            class="navbar__link"
           >
+            <el-icon><Document /></el-icon><span>News</span>
+          </router-link>
         </li>
         <li class="navbar__item">
-          <router-link to="/login" class="navbar__link"
-            ><el-icon><SwitchButton /></el-icon><span>Login</span></router-link
+          <router-link
+            to="/login"
+            class="navbar__link"
           >
+            <el-icon><SwitchButton /></el-icon><span>Login</span>
+          </router-link>
         </li>
       </ul>
     </div>
@@ -25,6 +34,7 @@
 <script>
 import { HomeFilled, Document, SwitchButton } from "@element-plus/icons-vue";
 export default {
+  name: "HeaderComponent",
   components: {
     HomeFilled,
     Document,
@@ -46,7 +56,7 @@ export default {
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
-  z-index: 9999;
+  z-index: 1;
   height: 60px;
 
   &__nav {

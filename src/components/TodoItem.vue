@@ -15,12 +15,18 @@
       </div>
       <div class="btn-group">
         <el-button
-          @click="router.push('/todo/' + todo.id)"
           :icon="EditPen"
           type="primary"
-          >Edit</el-button
+          @click="router.push('/todo/' + todo.id)"
         >
-        <el-button :icon="Delete" type="danger">Delete</el-button>
+          Edit
+        </el-button>
+        <el-button
+          :icon="Delete"
+          type="danger"
+        >
+          Delete
+        </el-button>
       </div>
     </el-card>
   </div>
@@ -30,7 +36,7 @@
 import { defineProps } from "vue";
 import { useRouter } from "vue-router";
 
-const props = defineProps(["todo"]);
+defineProps(["todo"]);
 const router = useRouter();
 </script>
 <script>
@@ -39,7 +45,9 @@ import { EditPen, Delete } from "@element-plus/icons-vue";
 export default {
   name: "TodoItem",
   components: {
+    // eslint-disable-next-line vue/no-unused-components
     EditPen,
+    // eslint-disable-next-line vue/no-unused-components
     Delete,
   },
 };

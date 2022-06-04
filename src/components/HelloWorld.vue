@@ -2,14 +2,13 @@
   <div>
     <main-layout-fake>
       <div>Hello world</div>
-      <input ref="input" />
+      <input ref="input">
     </main-layout-fake>
   </div>
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
-import { computed } from "@vue/runtime-core";
+import { ref, computed } from "vue";
 import { useStore } from "vuex";
 import MainLayoutFake from "@/components/MainLayoutFake.vue";
 
@@ -27,11 +26,7 @@ export default {
       input,
     };
   },
-  computed: {
-    appName: function () {
-      return this.store.state.APP_NAME;
-    },
-  },
+  computed: {},
 };
 </script>
 

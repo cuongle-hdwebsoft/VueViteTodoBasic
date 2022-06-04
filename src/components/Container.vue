@@ -1,12 +1,12 @@
 <template>
   <div class="container">
-    <slot></slot>
+    <slot />
   </div>
 </template>
 
 <script>
 export default {
-  name: "Container",
+  name: "ContainerComponent",
 };
 </script>
 

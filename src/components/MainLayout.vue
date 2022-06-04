@@ -1,8 +1,8 @@
 <template>
   <Container>
-    <HeaderComponent></HeaderComponent>
+    <HeaderComponent />
     <div class="content">
-      <slot></slot>
+      <slot />
     </div>
   </Container>
 </template>

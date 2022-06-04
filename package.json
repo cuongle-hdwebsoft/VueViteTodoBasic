@@ -9,7 +9,7 @@
     "db": "json-server --watch db.json --port 3000 --delay 1000",
     "test:unit": "vitest dev --ui --watch --dir \"src/tests/\" --dom --reporter verbose",
     "test:related": "vitest related --ui --watch  --dom ./src/tests/HelloWorld.spec.js",
-    "lint": "eslint src/ --no-fix"
+    "lint": "eslint src/ --fix --color"
   },
   "repository": {
     "type": "git",
