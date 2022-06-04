@@ -1,18 +1,13 @@
 {
-  "extends": ["plugin:vue/vue3-recommended","prettier"],
-  "plugins": ["prettier"],
-  "rules": {
-    "prettier/prettier": ["error", 
-      {
-        "endOfLine": "auto"
-      }
-    ]
-  },
+  "extends": ["plugin:vue/vue3-recommended", "eslint:recommended"],
+  "plugins": [],
+  "rules": {},
   "env": {
     "es6": true
   },
   "ignorePatterns": [
-    "dist/"
+    "dist/",
+    "node_modules/"
   ],
   "parserOptions": {
     "sourceType": "module"
