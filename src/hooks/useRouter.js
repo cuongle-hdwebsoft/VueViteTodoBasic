@@ -1,6 +1,6 @@
 import queryString from "query-string";
 
-function useQueryParams() {
+const useQueryParams = () => {
   const handleChangeRoute = (query) => {
     window.history.replaceState(
       {},
@@ -26,6 +26,6 @@ function useQueryParams() {
     handleChangeRoute,
     handleGetQuery,
   };
-}
+};
 
 export default useQueryParams;

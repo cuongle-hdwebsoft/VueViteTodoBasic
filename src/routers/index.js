@@ -1,5 +1,7 @@
 const files = import.meta.globEager("../pages/*.vue");
-const pages = Object.keys(files).map((file) => {
+const pages = [];
+
+Object.keys(files).forEach((file) => {
   let fileNameWithExt = /\w+.vue$/.exec(file);
 
   if (!fileNameWithExt) {
@@ -21,12 +23,23 @@ const pages = Object.keys(files).map((file) => {
   if (fileName.includes("item")) {
     let name = fileName.split("item")[0];
     path = `/${name}/:id`;
+
+    // append edit, create route
+    pages.push({
+      path: `/${name}/create`,
+      component
+    });
+
+    pages.push({
+      path: `/${name}/edit`,
+      component
+    });
   }
 
-  return {
+  pages.push({
     path,
     component,
-  };
+  });
 });
 
 export default pages;

@@ -1,86 +1,81 @@
 import instance from "./instance";
 
 export default class TodoApi {
-  static getAll(params = {}) {
-    return instance({
-      methods: "GET",
-      url: "/todos",
-      params: {
-        _limit: params.limit ? params.limit : 12,
-        _page: params.page ? params.page - 1 : 0,
-        ...params.filter,
-      },
-    })
-      .then((rs) => {
-        const total = rs.headers["x-total-count"];
-
-        return {
-          success: true,
-          data: rs.data,
-          total: parseInt(total),
-        };
-      })
-      .catch(() => {
-        return {
-          success: false,
-          data: [],
-          total: 0,
-        };
+  static async getAll(params = {}) {
+    try {
+      const rs = await instance({
+        method: "GET",
+        url: "/todos",
+        params: {
+          _limit: params.limit ? params.limit : 12,
+          _page: params.page ? params.page : 1,
+          ...params.filter,
+        },
       });
+      const total = rs.headers["x-total-count"];
+      return {
+        success: true,
+        data: rs.data,
+        total: parseInt(total),
+      };
+    } catch {
+      return {
+        success: false,
+        data: [],
+        total: 0,
+      };
+    }
   }
 
-  static get(id) {
-    return instance({
-      methods: "GET",
-      url: "/todos/" + id,
-    })
-      .then((rs) => {
-        return {
-          success: true,
-          data: rs.data,
-        };
-      })
-      .catch(() => {
-        return {
-          success: false,
-          data: null,
-        };
+  static async get(id) {
+    try {
+      const rs = await instance({
+        method: "GET",
+        url: "/todos/" + id,
       });
+      return {
+        success: true,
+        data: rs.data,
+      };
+    } catch {
+      return {
+        success: false,
+        data: null,
+      };
+    }
   }
 
-  static update(id, todo) {
-    return instance({
-      methods: "PUT",
-      url: "/todos/" + id,
-      data: todo,
-    })
-      .then((rs) => {
-        return {
-          success: true,
-        };
-      })
-      .catch(() => {
-        return {
-          success: false,
-        };
+  static async update(id, todo) {
+    try {
+      await instance({
+        method: "PUT",
+        url: "/todos/" + id,
+        data: todo,
       });
+      return {
+        success: true,
+      };
+    } catch {
+      return {
+        success: false,
+      };
+    }
   }
 
-  static post(todo) {
-    return instance({
-      methods: "POST",
-      url: "/todos/",
-      data: todo,
-    })
-      .then((rs) => {
-        return {
-          success: true,
-        };
-      })
-      .catch(() => {
-        return {
-          success: false,
-        };
+  static async create(todo) {
+    try {
+      await instance({
+        method: "POST",
+        url: "/todos/",
+        data: todo,
       });
+      return {
+        success: true,
+      };
+    } catch {
+      return {
+        success: false,
+      };
+    }
   }
 }
