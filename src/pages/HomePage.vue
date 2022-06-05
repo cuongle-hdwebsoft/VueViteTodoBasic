@@ -48,6 +48,7 @@ import useQueryParams from "@/hooks/useRouter.js";
 import { onBeforeMount, ref, watch } from "vue";
 import { EditPen } from "@element-plus/icons-vue";
 import { useRouter } from "vue-router";
+import useDebounce from "../hooks/useDebounce";
 
 export default {
   name: "HomePage",
@@ -63,6 +64,7 @@ export default {
     const page = ref(parseInt(query.page) || 1);
     const limit = ref(parseInt(query.limit) || 4);
     const router = useRouter();
+    const { handler } = useDebounce();
 
     const handleNavigateCreateRoute = () => {
       router.push("/todo/create");
@@ -80,22 +82,26 @@ export default {
     });
 
     watch([page], function () {
-      handleGetTodos(page.value, limit.value, { q: q.value });
-      handleChangeRoute({
-        limit: limit.value,
-        page: page.value,
-        filter: { q: q.value },
-      });
+      handler(() => {
+        handleGetTodos(page.value, limit.value, { q: q.value });
+        handleChangeRoute({
+          limit: limit.value,
+          page: page.value,
+          filter: { q: q.value },
+        });
+      }, 1000);
     });
 
     watch([q, limit], function () {
-      page.value = 1;
-      handleGetTodos(page.value, limit.value, { q: q.value });
-      handleChangeRoute({
-        limit: limit.value,
-        page: page.value,
-        filter: { q: q.value },
-      });
+      handler(() => {
+        page.value = 1;
+        handleGetTodos(page.value, limit.value, { q: q.value });
+        handleChangeRoute({
+          limit: limit.value,
+          page: page.value,
+          filter: { q: q.value },
+        });
+      }, 1000);
     });
 
     return {
