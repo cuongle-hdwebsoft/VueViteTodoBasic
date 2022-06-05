@@ -93,15 +93,13 @@ export default {
     });
 
     watch([q, limit], function () {
-      handler(() => {
-        page.value = 1;
-        handleGetTodos(page.value, limit.value, { q: q.value });
-        handleChangeRoute({
-          limit: limit.value,
-          page: page.value,
-          filter: { q: q.value },
-        });
-      }, 1000);
+      page.value = 1;
+      handleGetTodos(page.value, limit.value, { q: q.value });
+      handleChangeRoute({
+        limit: limit.value,
+        page: page.value,
+        filter: { q: q.value },
+      });
     });
 
     return {
