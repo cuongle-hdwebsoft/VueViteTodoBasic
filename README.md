@@ -1,61 +1,56 @@
-## Project Todo (22/05/2022)
+# Todo App
 
-### References
+## Overview:
+- This is the Vue app which I use vite config instead of using webpack. It really faster in build and hrm with esm.
+- Basic feature:
+  - Show todos
+  - Search todo lazy load
+  - Edit, Create todos
 
-[https://stackoverflow.com/questions/67696920/vite-rollup-failed-to-resolve-build-error](https://stackoverflow.com/questions/67696920/vite-rollup-failed-to-resolve-build-error)
+- Some useful config
+  - Test with vitest, chai, sinon, vue util test
+  - eslint
+  - prettier (I removed but you can find that in some commit)
 
-### Example
+## Start source
+First, you need to install node_modules
 
-css.modules.localsConvention
-{
-"button": "\_button_1ky65_1",
-"button-primary": "\_button-primary_1ky65_17",
-"buttonPrimary": "\_button-primary_1ky65_17"
-}
+``
+npm i
+``
 
-### Code test before startup source
+Then, Run database json-server
 
-<pre>
-import { sum } from "@/utils/sum";
+``
+npm run db
+``
 
-console.log(sum(5, 10));
+Finally, Run app
 
-import buttonStyle from "@/assets/css/button.module.css";
-import "@/assets/css/style.css";
+``
+npm run dev
+``
 
-console.log(buttonStyle);
+[Optional] Run eslint, auto fix some errors, but some cases you may have to mannually fix by yourself
 
-// test load css
-const button = document.createElement("button");
-button.classList.add(buttonStyle["button"]);
-button.innerText = "Click me";
-document.querySelector("body").appendChild(button);
+``
+npm run lint
+``
 
-// test load images
-import helloKity from "@/assets/images/hello-kitty.jpg";
-console.log(helloKity);
-const image = document.createElement("img");
-image.src = helloKity;
-image.style.width = "150px";
-image.style.height = "100px";
-document.querySelector("body").appendChild(image);
+[Optional] Run test
 
-// test glob
+``
+npm run test:unit
+``
 
-// export glob
-const modules = import.meta.glob("./utils/*.js");
-console.log(modules);
+## Requirement
 
-// test https://vitejs.dev/guide/assets.html#explicit-url-imports
-import randomUrl from "lodash/random.js?url";
-import randomRaw from "lodash/random.js?raw";
-console.log(randomUrl);
-console.log(randomRaw);
+Node 14
 
-// http://localhost:3000/src/assets/images/hello-kitty.jpg
-console.log(new URL("./assets/images/hello-kitty.jpg", import.meta.url).href);
-</pre>
+## Result
 
-### Noted
-
-- $nextTick always run after watch and computed. so we can make sure everything updated
+![alt](./images/1.png)
+![alt](./images/2.png)
+![alt](./images/3.png)
+![alt](./images/4.png)
+![alt](./images/5.png)
