@@ -1,0 +1,39 @@
+{
+  "todos": [
+    {
+      "title": "Wash hand modify",
+      "description": "Wash my hand",
+      "status": "Done",
+      "date": "2022-06-05T03:42:51.818Z",
+      "id": 1
+    },
+    {
+      "title": "Clean table",
+      "description": "Clean table",
+      "status": "Done",
+      "date": "2022-06-05T03:44:03.566Z",
+      "id": 2
+    },
+    {
+      "title": "Do homework",
+      "description": "Do my homeword",
+      "status": "Not yet",
+      "date": "2022-06-05T03:45:02.834Z",
+      "id": 3
+    },
+    {
+      "title": "Learn JS",
+      "description": "Learn JS",
+      "status": "Not yet",
+      "date": "2022-06-05T03:45:33.643Z",
+      "id": 4
+    },
+    {
+      "title": "Learn CSS",
+      "description": "Learn CSS",
+      "status": "Not yet",
+      "date": "2022-06-05T03:45:53.501Z",
+      "id": 5
+    }
+  ]
+}
