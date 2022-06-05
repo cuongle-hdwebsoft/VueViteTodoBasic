@@ -1,8 +1,9 @@
+/* eslint-disable no-undef */
 /// <reference types="vitest" />
 import { defineConfig, loadEnv } from "vite";
 import VuePlugin from "@vitejs/plugin-vue";
 
-export default defineConfig(({ command, mode }) => {
+export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd());
 
   return {
